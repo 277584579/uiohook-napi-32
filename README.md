@@ -7,7 +7,7 @@ This package only supports Windows 32-bit, and packages that can be paired with 
 
 N-API C-bindings for [libuiohook](https://github.com/kwhat/libuiohook).
 
-
+node 16 (32bit)  vs2022
 
 ### Usage example
 
