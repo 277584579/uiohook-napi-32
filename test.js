@@ -1,4 +1,4 @@
-const addon  = require("./build/Release/uiohook_napi.node")// 定义回调函数
+const { start }  = require("./build/Release/uiohook_napi.node")// 定义回调函数
 
 const Koa = require('koa');
 const app = new Koa();
@@ -8,9 +8,10 @@ app.use(async (ctx, next) => {
   ctx.body = 'Hello World!';
   await next();
 });
-
-console.log(addon)
-addon.start()
+start((event) => {
+  console.log('Received key event:', event);
+  // 在这里执行您想要的操作
+});
 // const { uIOhook, UiohookKey } = addon
 // uIOhook.on('keydown', (e) => {
 //   if (e.keycode === UiohookKey.Q) {
