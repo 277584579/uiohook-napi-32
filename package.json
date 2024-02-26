@@ -1,6 +1,6 @@
 {
   "name": "uiohook-napi-32",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "author": {
     "name": "liming"
   },
@@ -21,14 +21,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "install": "node-gyp-build",
     "install-32": "node-gyp configure --arch=ia32",
-    "build":"node-gyp build",
+    "install-build": "node-gyp build",
     "prebuild": "prebuildify --napi",
     "build-ts": "tsc",
     "demo": "ts-node src/demo.ts",
     "make-libuiohook-patch": "git -C ./libuiohook diff --cached > ./src/libuiohook.patch",
-    "apply-libuiohook-patch": "git -C ./libuiohook apply ../src/libuiohook.patch"
+    "apply-libuiohook-patch": "git -C ./libuiohook apply ../src/libuiohook.patch",
+    "install": "node-gyp rebuild"
   },
   "files": [
     "dist",
@@ -39,13 +39,13 @@
     "prebuilds"
   ],
   "devDependencies": {
-    "@types/node": "16.x.x",
+    "@types/node": "18.x.x",
     "prebuildify": "5.x.x",
     "ts-node": "10.x.x",
     "typescript": "4.x.x"
   },
   "dependencies": {
-    "koa": "^2.14.2",
+    "koa": "^2.15.0",
     "node-gyp-build": "4.x.x"
   },
   "prebuild": {
@@ -54,5 +54,10 @@
   "gypfile": true,
   "engines": {
     "node": ">= 16"
-  }
+  },
+  "description": "[![](https://img.shields.io/npm/v/uiohook-napi/latest?color=CC3534&label=uiohook-napi&logo=npm&labelColor=212121)](https://www.npmjs.com/package/uiohook-napi)",
+  "bugs": {
+    "url": "https://github.com/SnosMe/uiohook-napi/issues"
+  },
+  "homepage": "https://github.com/SnosMe/uiohook-napi#readme"
 }
